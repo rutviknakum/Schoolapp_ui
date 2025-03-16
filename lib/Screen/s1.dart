@@ -1,5 +1,4 @@
 import 'package:demo_project/Screen/LoginScreen.dart';
-import 'package:demo_project/Screen/student_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,7 +84,7 @@ class _S1State extends State<S1> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => student_login()),
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
                 ),

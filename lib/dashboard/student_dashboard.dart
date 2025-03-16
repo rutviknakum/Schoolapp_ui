@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StudentDashboard extends StatefulWidget {
@@ -15,6 +14,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: isDarkTheme ? ThemeData.dark() : ThemeData.light(),
       home: Scaffold(
         drawer: Drawer(
@@ -32,17 +32,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 title: Text("Manage Profile"),
                 onTap: () {},
               ),
-              ListTile(
-                leading: Icon(
-                  isDarkTheme ? Icons.wb_sunny : Icons.nightlight_round,
-                ),
-                title: Text("Toggle Theme"),
-                onTap: () {
-                  setState(() {
-                    isDarkTheme = !isDarkTheme;
-                  });
-                },
-              ),
+
               ListTile(
                 leading: Icon(Icons.logout),
                 title: Text("Logout"),
@@ -89,12 +79,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
         ),
         body: Stack(
           children: [
+            // Background Image
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
-                    'assets/bgstudent.jpg',
-                  ), // ✅ Student-themed background image
+                  image: AssetImage('assets/bgstudent.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -107,9 +96,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(
-                        0.8,
-                      ), // Slight transparency
+                      color: Colors.white.withOpacity(0.8),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Column(
@@ -164,7 +151,13 @@ class _StudentDashboardState extends State<StudentDashboard> {
   Widget _buildGridItem(String assetPath, String title) {
     return Column(
       children: [
-        SvgPicture.asset(assetPath, height: 60),
+        Image.asset(
+          assetPath,
+          height: 60,
+          errorBuilder: (context, error, stackTrace) {
+            return Icon(Icons.error, size: 60, color: Colors.red);
+          },
+        ),
         const SizedBox(height: 8),
         Text(
           title,

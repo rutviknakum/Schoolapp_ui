@@ -1,4 +1,4 @@
-import 'package:demo_project/Screen/s1.dart';
+import 'package:demo_project/dashboard/student_dashboard.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -162,7 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (_formKey.currentState!.validate()) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => S1()),
+                              MaterialPageRoute(
+                                builder: (context) => StudentDashboard(),
+                              ),
                             );
                           }
                         },
