@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (_formKey.currentState!.validate()) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => s1()),
+                              MaterialPageRoute(builder: (context) => S1()),
                             );
                           }
                         },

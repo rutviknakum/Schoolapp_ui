@@ -1,19 +1,17 @@
+import 'package:demo_project/Screen/LoginScreen.dart';
+import 'package:demo_project/Screen/student_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class s1 extends StatefulWidget {
-  const s1({super.key});
+class S1 extends StatefulWidget {
+  const S1({super.key});
 
   @override
-  _s1State createState() => _s1State();
+  _S1State createState() => _S1State();
 }
 
-class _s1State extends State<s1> {
-  void _onFeatureTap(String feature) {
-    print("$feature clicked");
-  }
-
+class _S1State extends State<S1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,14 +82,24 @@ class _s1State extends State<s1> {
                   imagePath: 'assets/Student.svg',
                   title: 'Student',
                   description: 'Access homework, attendance, and more.',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => student_login()),
+                    );
+                  },
                 ),
                 const SizedBox(height: 24),
                 RoleSelectionCard(
                   imagePath: 'assets/Teacher.svg',
                   title: 'Teacher',
                   description: 'Manage attendance, assignments, and reports.',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    );
+                  },
                 ),
               ],
             ),
