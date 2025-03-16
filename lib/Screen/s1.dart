@@ -1,120 +1,102 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class s1 extends StatelessWidget {
+class s1 extends StatefulWidget {
   const s1({super.key});
+
+  @override
+  _s1State createState() => _s1State();
+}
+
+class _s1State extends State<s1> {
+  void _onFeatureTap(String feature) {
+    print("$feature clicked");
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.blueGrey.shade900,
-      body: Stack(
-        children: [
-          Positioned(
-            top: -50,
-            left: -100,
-            child: Container(
-              width: 200,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [Colors.blueAccent, Colors.transparent],
-                ),
-              ),
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF001F3F), Color(0xFF0074E4)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          Positioned(
-            bottom: -50,
-            right: -100,
-            child: Container(
-              width: 200,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [Colors.purpleAccent, Colors.transparent],
-                ),
-              ),
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // SizedBox(height: 40),
-                  Center(
-                    child: Container(
-                      padding: const EdgeInsets.all(35),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            blurRadius: 8,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: Image.asset(
-                        "assets/logo1.png",
-                        height: 100,
-                        errorBuilder: (context, error, stackTrace) {
-                          return const Icon(
-                            Icons.error,
-                            size: 100,
-                            color: Colors.red,
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    "Odisha International School",
-                    style: GoogleFonts.poppins(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.all(35),
+                    decoration: BoxDecoration(
                       color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black45,
+                          blurRadius: 12,
+                          spreadRadius: 4,
+                        ),
+                      ],
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    "Select your role to continue",
-                    style: GoogleFonts.poppins(
-                      fontSize: 20,
-                      color: Colors.white70,
+                    child: Image.asset(
+                      "assets/logo1.png",
+                      height: 100,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(
+                          Icons.error,
+                          size: 100,
+                          color: Colors.red,
+                        );
+                      },
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 50),
-                  RoleSelectionCard(
-                    imagePath: 'assets/Student.svg',
-                    title: 'Student',
-                    description: 'Access homework, attendance, and more.',
-                    onTap: () {},
+                ),
+                SizedBox(height: 24),
+                Text(
+                  "Odisha International School",
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                  const SizedBox(height: 30),
-                  RoleSelectionCard(
-                    imagePath: 'assets/Teacher.svg',
-                    title: 'Teacher',
-                    description: 'Manage attendance, assignments, and reports.',
-                    onTap: () {},
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  "Select your role to continue",
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: Colors.white70,
                   ),
-                ],
-              ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
+                RoleSelectionCard(
+                  imagePath: 'assets/Student.svg',
+                  title: 'Student',
+                  description: 'Access homework, attendance, and more.',
+                  onTap: () {},
+                ),
+                const SizedBox(height: 24),
+                RoleSelectionCard(
+                  imagePath: 'assets/Teacher.svg',
+                  title: 'Teacher',
+                  description: 'Manage attendance, assignments, and reports.',
+                  onTap: () {},
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -141,20 +123,16 @@ class RoleSelectionCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.white.withOpacity(0.9),
           boxShadow: [
-            BoxShadow(
-              color: Colors.white.withOpacity(0.2),
-              blurRadius: 10,
-              spreadRadius: 3,
-            ),
+            BoxShadow(color: Colors.black26, blurRadius: 10, spreadRadius: 3),
           ],
         ),
         child: Row(
           children: [
             SvgPicture.asset(imagePath, height: 60),
-            const SizedBox(width: 20),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,7 +142,7 @@ class RoleSelectionCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Color(0xFF001F3F),
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -172,13 +150,13 @@ class RoleSelectionCard extends StatelessWidget {
                     description,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
-                      color: Colors.white70,
+                      color: Color(0xFF003366),
                     ),
                   ),
                 ],
               ),
             ),
-            const Icon(Icons.arrow_forward_ios, color: Colors.white),
+            const Icon(Icons.arrow_forward_ios, color: Color(0xFF001F3F)),
           ],
         ),
       ),
