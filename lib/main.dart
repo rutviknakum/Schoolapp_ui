@@ -1,4 +1,4 @@
-import 'package:demo_project/Screen/SplashScreen.dart';
+import 'package:demo_project/dashboard/student_dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Shiksha Sutram',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SplashScreen(),
+      home: StudentDashboard(),
     );
   }
 }

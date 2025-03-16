@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:demo_project/Screen/LoginScreen.dart';
 import 'package:demo_project/Screen/s1.dart';
 import 'package:flutter/material.dart';
 
