@@ -15,7 +15,6 @@ class _StudentDashboardState extends State<StudentDashboard> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: isDarkTheme ? ThemeData.dark() : ThemeData.light(),
       home: Scaffold(
         drawer: Drawer(
           child: Column(
